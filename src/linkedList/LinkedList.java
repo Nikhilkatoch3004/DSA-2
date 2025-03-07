@@ -1,5 +1,7 @@
 package linkedList;
 
+import java.util.Scanner;
+
 class Node {
     int data;
     Node next;
@@ -98,29 +100,78 @@ public class LinkedList {
         System.out.println("Sizze of Linked List : " + count);
     }
 
+    //Middle of Linked List
+    public void middle() {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        System.out.println("Middle Element is : " + slow.data);
+    }
+
     public void display() {
         Node temp = head;
         while (temp != null) {
             System.out.print(temp.data + "-->");
             temp = temp.next;
         }
+        System.out.println();
     }
 
 
     public static void main(String[] args) {
 
         LinkedList ll = new LinkedList();
-        ll.insert(10);
-        ll.insert(20);
-        ll.insert(20);
-        ll.insert(20);
 
-        ll.reverse();
+        Scanner sc = new Scanner(System.in);
+        boolean check = true;
+        while (check) {
+            System.out.println("Enter your Choice :\n1: Insert The Element.\n2: Insert At Beginning. \n" +
+                    "3: Size of LinkedList. \n4: Delete From Beginning. \n5: Delete From End. \n6: Middle of Linked List" +
+                    "\n7: Display Linked List. \n8: Reverse Linked List. \n9: Exit");
+            int choice = sc.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.print("Enter the Data : ");
+                    int value = sc.nextInt();
+                    ll.insert(value);
+                    break;
+                case 2:
+                    System.out.print("Enter the Data : ");
+                    int value1 = sc.nextInt();
+                    ll.insertBegin(value1);
+                    break;
+                case 3:
+                    ll.size();
+                    break;
+                case 4:
+                    ll.deleteBegin();
+                    break;
+                case 5:
+                    ll.deleteEnd();
+                    break;
+                case 6:
+                    ll.middle();
+                    break;
+                case 7:
+                    ll.display();
+                    break;
+                case 8:
+                    ll.reverse();
+                    break;
+                case 9:
+                    check = false;
+                    break;
+                default:
+                    System.out.println("Enter the Correct choice.");
+                    break;
 
-        ll.size();
-//        ll.deleteEnd();
-//       ll.deleteBegin();
-        ll.display();
+            }
+        }
+
+        sc.close();
 
     }
 
