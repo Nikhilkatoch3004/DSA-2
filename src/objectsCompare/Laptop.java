@@ -107,5 +107,16 @@ class test {
         for (Laptop laptop : list) {
             System.out.println(laptop);
         }
+
+        Comparator<Laptop> comp1 = new Comparator<Laptop>() {
+            @Override
+            public int compare(Laptop o1, Laptop o2) {
+                if (o1.getPrice() > o2.getPrice())
+                    return 1;
+                else {
+                    return o1.getPrice() == o2.getPrice() ? 0 : -1;
+                }
+            }
+        };
     }
 }

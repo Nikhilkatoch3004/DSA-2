@@ -18,7 +18,7 @@ public class PrimeNumbers {
 
     public boolean isPrime(int n) {
         if (n < 2) return false;
-        for (int i = 2; i <= Math.sqrt(n); i++) {
+        for (int i = 2; i * i <= n; i++) {   //i <= Math.sqrt(n);
             if (n % i == 0) return false;
         }
         return true;
