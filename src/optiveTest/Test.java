@@ -1,10 +1,14 @@
 package optiveTest;
 
 class Animal {
-    static int x = 20;
+    int x = 20;
 
     Animal() {
         System.out.println("Animal Constructor");
+    }
+
+    Animal(int x) {
+        System.out.println("Animal Parameterized Constructor");
     }
 
     //    public static void sound() {
@@ -19,6 +23,7 @@ class Dog extends Animal {
     int x = 10;
 
     Dog() {
+
         System.out.println("Dog Constructor");
     }
 
@@ -35,6 +40,7 @@ public class Test {
     public static void main(String[] args) {
         Animal a = new Dog();
         a.sound();
+        System.out.println(a.x);
     }
 
 }
